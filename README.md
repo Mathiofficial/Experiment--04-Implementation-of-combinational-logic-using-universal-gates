@@ -26,18 +26,89 @@ NOR gate is actually a combination of two logic gates: OR gate followed by NOT g
 
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
 
-## Logic Diagram
 ## Procedure
+
+Step 1: Create a project with required entities.
+Step 2: Create a module along with respective file name.
+Step 3: Run the respective programs for the given boolean equations.
+Step 4: Run the module and get the respective RTL outputs.
+Step 5: Create university program(VWF) for getting timing diagram.
+Step 6: Give the respective inputs for timing diagram and obtain the results.
+
+
+
+
+
 ## Program:
-/*
-Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-## RTL realization
+
+'''Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
+Developed by: Mathiyazhagan.A
+RegisterNumber:  22005215
+'''
+
+USING NAND OPERATION
+
+module fourexp(A,B,C,D,F);  
+input A,B,C,D;  
+output F;  
+wire P,Q,R;  
+assign P = C&(~B)&(~A);  
+assign Q = D&(~C)&(~A);  
+assign R = (~C)&B&(~A);  
+assign F = (~P&~Q&~R);  
+endmodule 
+
+USING NOR OPERATION
+
+module fourexp(A,B,C,D,F);  
+input A,B,C,D;  
+output F;  
+wire P,Q,R,S;  
+assign P = C&(~B)&A;  
+assign Q = D&(~C)&A;  
+assign R = C&(~B)&A;  
+assign S = ~(P|Q|R);  
+assign F = ~S;  
+endmodule 
+
 
 ## Output:
+
 ## RTL
+
+FOR NAND
+![nandrtl](https://user-images.githubusercontent.com/118787327/214537039-e79888a9-e50a-4cfb-8b20-a441e6e308bc.png)
+
+FOR NOR
+
+![norrtl](https://user-images.githubusercontent.com/118787327/214537214-cc0ca835-4db1-4645-8857-2584fcb7d63e.png)
+
+
 ## Timing Diagram
+
+FOR NAND
+
+![nandtd](https://user-images.githubusercontent.com/118787327/214537566-1b3d9136-3456-4bff-a83f-e73939330ee9.png)
+
+FOR NOR
+![nortd](https://user-images.githubusercontent.com/118787327/214537684-ba4d1874-2000-488a-af64-396275c63d67.png)
+
+## Truth table
+
+FOR NAND
+
+
+![nandtt](https://user-images.githubusercontent.com/118787327/214538021-04e77eb2-26bf-4860-b47a-dfc6eb0344f3.png)
+
+
+
+
+FOR NOR
+
+
+
+![nortt](https://user-images.githubusercontent.com/118787327/214538096-59cae23c-9c52-4b8a-bbd5-c271e64319c8.png)
+
+
 ## Result:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
